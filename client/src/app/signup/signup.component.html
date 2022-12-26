@@ -1,0 +1,29 @@
+
+    <div class="container">
+      <div class="box box-one">
+        <img [src]="vavulencelogo" alt="" style="width: 150px" class="img-pd"/>
+
+      </div>
+      <h5><strong>Sign Up to Vawulence App</strong> </h5>
+      <div class="box box-two">
+        <form #registerForm="ngForm" (ngSubmit)="register()" autocomplete="off">
+          <input 
+            name="username"
+            [(ngModel)]="model.username"
+            type="text" 
+            class="mb-2"
+            placeholder="Username">
+          <input 
+            name="password"
+            [(ngModel)]="model.password"
+            class="mb-3" 
+            type="password" 
+            placeholder="Password">
+
+          <button type="submit" class="login-btn">Sign Up</button>
+        </form>
+        
+    </div>
+
+  
+

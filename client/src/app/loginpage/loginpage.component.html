@@ -1,0 +1,25 @@
+<div class="flex-container">
+  <div class="role-4 loginPage" >
+    <img [src]="vavulenceimage" alt="" style="height: 100vh" />
+  </div>
+  <div class="content">
+    <div class="role-6 grey">
+      <img [src]="vavulencelogo" alt="" style="width: 50px" class="img-pd"/>
+    </div>
+    <div>
+      <h1 class="h1-sz">What is Happen now</h1>
+      <p class="font-pazzaz" style="font-size: 30px;">Join Vawulence App Today</p>
+      <div class="long">
+        <button routerLink="/signup" class="btn btn-primary btn-long" style="width: 200px">
+          Sign Up
+        </button>
+      </div>
+      <div>
+        <button routerLink="/login" (click)="loginToggle()" class="btn btn-outline" style="width: 200px">
+          Login
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+

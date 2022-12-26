@@ -1,0 +1,42 @@
+
+    <div *ngIf="!(accountService.currentUser$ | async)" class="container">
+      <div class="box box-one">
+        <img [src]="vavulencelogo" alt="" style="width: 50px" class="img-pd"/>
+        <button>
+          <img [src]="googlelogo" alt="" width="19"> <span>Sign in with Google</span>
+        </button>
+        <button>
+          <img [src]="applelogo" alt="" width="19"> <span>Sign in with Apple</span>
+        </button>
+      </div>
+      <h5><strong>Or</strong> </h5>
+      <div class="box box-two">
+        <form #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off">
+          <input 
+            name="username"
+            [(ngModel)]="model.username"
+            class="mb-2" 
+            type="text" 
+            placeholder="Username">
+          <input 
+            name="password"
+            [(ngModel)]="model.password"
+            class="mb-3" 
+            type="password" 
+            placeholder="Password">
+
+          <button class="login-btn mb-2" type="submit">Login</button>
+          <button >Forget Password</button>
+        </form>
+      </div>
+      <p>Don't have an account <span class="cursor" style="color: green;" routerLink="/signup">Sign Up</span> </p>
+    </div>
+
+    <h1 *ngIf="accountService.currentUser$ | async">Logged In</h1>
+    <form *ngIf="accountService.currentUser$ | async" (ngSubmit)="logout()">
+      <button class="btn btn-primary" type="submit">logout</button>
+    </form>
+    
+
+  
+
