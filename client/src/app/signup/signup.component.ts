@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from '../_services/account.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -10,7 +12,7 @@ export class SignupComponent implements OnInit {
   vavulencelogo: string = "assets/projectlogo.png";
   model: any = {}
 
-  constructor(private accountService: AccountService) { }
+  constructor(private accountService: AccountService, private router: Router,private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -18,8 +20,12 @@ export class SignupComponent implements OnInit {
   register() {
     this.accountService.register(this.model).subscribe({
       next: () => {
+        this.router.navigateByUrl('/members')
       },
-      error: error => console.log(error)
+      error: error => {
+        this.toastr.error(error.error);
+        console.log(error);
+      }
     })
   }
 
